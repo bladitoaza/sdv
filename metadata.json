@@ -1,0 +1,157 @@
+{
+    "tables": {
+        "households": {
+            "columns": {
+                "HHID": {
+                    "sdtype": "id"
+                },
+                "HHSIZE": {
+                    "sdtype": "categorical"
+                },
+                "BIKES": {
+                    "sdtype": "numerical"
+                },
+                "HHVEH": {
+                    "sdtype": "numerical"
+                },
+                "EBIKES": {
+                    "sdtype": "numerical"
+                },
+                "ESCOOTER": {
+                    "sdtype": "numerical"
+                },
+                "DWELLTYPE": {
+                    "sdtype": "categorical"
+                },
+                "HOME_SA1_2021": {
+                    "sdtype": "categorical"
+                }
+            },
+            "primary_key": "HHID"
+        },
+        "persons": {
+            "columns": {
+                "HHID": {
+                    "sdtype": "id"
+                },
+                "PERSID": {
+                    "sdtype": "id"
+                },
+                "AGEGROUP": {
+                    "sdtype": "numerical"
+                },
+                "SEX": {
+                    "sdtype": "categorical"
+                },
+                "RELATIONSHIP": {
+                    "sdtype": "categorical"
+                },
+                "CARLICENCE": {
+                    "sdtype": "categorical"
+                },
+                "CARLICTYPE": {
+                    "sdtype": "categorical"
+                },
+                "MCLICENCE": {
+                    "sdtype": "categorical"
+                },
+                "MCLICTYPE": {
+                    "sdtype": "categorical"
+                },
+                "WORKSTATUS": {
+                    "sdtype": "categorical"
+                },
+                "ANZSCO_3-digit": {
+                    "sdtype": "categorical"
+                },
+                "INDUSTRY": {
+                    "sdtype": "categorical"
+                },
+                "STUDYING": {
+                    "sdtype": "categorical"
+                },
+                "ED_TYPE": {
+                    "sdtype": "categorical"
+                },
+                "MAINACT": {
+                    "sdtype": "categorical"
+                },
+                "STARTPLACE": {
+                    "sdtype": "categorical"
+                }
+            },
+            "primary_key": "PERSID"
+        },
+        "trips": {
+            "columns": {
+                "TRIPID": {
+                    "sdtype": "id"
+                },
+                "HHID": {
+                    "sdtype": "id"
+                },
+                "PERSID": {
+                    "sdtype": "id"
+                },
+                "STARTIME": {
+                    "sdtype": "numerical"
+                },
+                "ORIGPLACE": {
+                    "sdtype": "categorical"
+                },
+                "ORIGPURP": {
+                    "sdtype": "categorical"
+                },
+                "ORIGSA1_2021": {
+                    "sdtype": "categorical"
+                },
+                "DESTPLACE": {
+                    "sdtype": "categorical"
+                },
+                "DESTPURP": {
+                    "sdtype": "categorical"
+                },
+                "DESTSA1_2021": {
+                    "sdtype": "categorical"
+                },
+                "MAINMODE": {
+                    "sdtype": "categorical"
+                },
+                "ARRTIME": {
+                    "sdtype": "numerical"
+                },
+                "DURATION": {
+                    "sdtype": "numerical"
+                },
+                "TRAVTIME": {
+                    "sdtype": "numerical"
+                },
+                "OVERALL_PURPOSE": {
+                    "sdtype": "categorical"
+                }
+            },
+            "primary_key": "TRIPID"
+        }
+    },
+    "relationships": [
+        {
+            "parent_table_name": "households",
+            "child_table_name": "persons",
+            "parent_primary_key": "HHID",
+            "child_foreign_key": "HHID"
+        },
+        {
+            "parent_table_name": "households",
+            "child_table_name": "trips",
+            "parent_primary_key": "HHID",
+            "child_foreign_key": "HHID"
+        },
+        {
+            "parent_table_name": "persons",
+            "child_table_name": "trips",
+            "parent_primary_key": "PERSID",
+            "child_foreign_key": "PERSID"
+        }
+    ],
+    "METADATA_SPEC_VERSION": "MULTI_TABLE_V1"
+}

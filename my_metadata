@@ -1,0 +1,9 @@
+digraph Metadata {
+	node [fillcolor=lightgoldenrod1 shape=Mrecord style=filled]
+	households [label="{households|HHID : id\lHHSIZE : categorical\lBIKES : numerical\lHHVEH : categorical\lEBIKES : categorical\lESCOOTER : categorical\lDWELLTYPE : categorical\lHOME_SA1_2021 : numerical\l|Primary key: HHID\l}"]
+	persons [label="{persons|HHID : id\lPERSID : id\lAGEGROUP : numerical\lSEX : categorical\lRELATIONSHIP : categorical\lCARLICENCE : categorical\lCARLICTYPE : categorical\lMCLICENCE : categorical\lMCLICTYPE : categorical\lWORKSTATUS : categorical\lANZSCO_3-digit : numerical\lINDUSTRY : categorical\lSTUDYING : categorical\lED_TYPE : numerical\lMAINACT : categorical\lSTARTPLACE : categorical\l|Primary key: PERSID\lForeign key (households): HHID\l}"]
+	trips [label="{trips|TRIPID : id\lHHID : id\lPERSID : id\lSTARTIME : numerical\lORIGPLACE : categorical\lORIGPURP : categorical\lORIGSA1_2021 : numerical\lDESTPLACE : categorical\lDESTPURP : categorical\lDESTSA1_2021 : numerical\lMAINMODE : categorical\lARRTIME : numerical\lDURATION : numerical\lTRAVTIME : numerical\lOVERALL_PURPOSE : categorical\l|Primary key: TRIPID\lForeign key (households): HHID\lForeign key (persons): PERSID\l}"]
+	households -> trips [label="  HHID → HHID" arrowhead=oinv]
+	households -> persons [label="  HHID → HHID" arrowhead=oinv]
+	persons -> trips [label="  PERSID → PERSID" arrowhead=oinv]
+}
